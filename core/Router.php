@@ -6,15 +6,17 @@ class Router
 {
   private $routes = [];
 
-  public function add($route, $action)
+  public function add($method, $route, $action)
   {
-    $this->routes[$route] = $action;
+    $this->routes[$method][$route] = $action;
   }
 
   public function dispatch($uri)
   {
-    if (isset($this->routes[$uri])) {
-      [$controller, $method] = explode("@", $this->routes[$uri]);
+    $method = $_SERVER['REQUEST_METHOD'];
+
+    if (isset($this->routes[$method][$uri])) {
+      [$controller, $method] = explode("@", $this->routes[$method][$uri]);
       $controllerClass = "App\\controllers\\{$controller}";
 
       if (!class_exists($controllerClass)) {

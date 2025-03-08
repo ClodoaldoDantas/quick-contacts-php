@@ -19,7 +19,7 @@
     </p>
   </header>
 
-  <form class="space-y-4">
+  <form class="space-y-4" action="/contacts" method="POST">
     <div class="flex flex-col gap-1">
       <label class="text-sm font-semibold" for="name">Nome</label>
 

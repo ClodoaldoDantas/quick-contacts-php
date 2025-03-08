@@ -13,4 +13,9 @@ class ContactController
   {
     loadView("create-contact");
   }
+
+  public function store()
+  {
+    echo "Contact created successfully!";
+  }
 }
