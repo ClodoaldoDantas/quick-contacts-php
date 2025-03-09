@@ -8,9 +8,9 @@ require_once "../utils.php";
 
 $router = new Router();
 
-$router->add("GET", "/", "ContactController@index");
-$router->add("GET", "/contacts/new", "ContactController@create");
-$router->add("POST", "/contacts", "ContactController@store");
+$router->get("/", "ContactController@index");
+$router->get("/contacts/new", "ContactController@create");
+$router->post("/contacts", "ContactController@store");
 
 // Get the current URI without query string
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

@@ -1,6 +1,6 @@
 <?php
 
-function loadPartial($name)
+function loadPartial(string $name)
 {
   $path = __DIR__ . "/app/views/partials/{$name}.php";
 
@@ -11,7 +11,7 @@ function loadPartial($name)
   }
 }
 
-function loadView($view, $data = [])
+function loadView(string $view, array $data = [])
 {
   $path = __DIR__ . "/app/views/{$view}.php";
 

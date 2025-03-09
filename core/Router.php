@@ -6,12 +6,22 @@ class Router
 {
   private $routes = [];
 
-  public function add($method, $route, $action)
+  private function registerRoute(string $method, string $route, string $action)
   {
     $this->routes[$method][$route] = $action;
   }
 
-  public function dispatch($uri)
+  public function get(string $route, string $action)
+  {
+    $this->registerRoute('GET', $route, $action);
+  }
+
+  public function post(string $route, string $action)
+  {
+    $this->registerRoute('POST', $route, $action);
+  }
+
+  public function dispatch(string $uri)
   {
     $method = $_SERVER['REQUEST_METHOD'];
 
