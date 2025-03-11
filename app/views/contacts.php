@@ -19,95 +19,32 @@
   <!-- Contacts -->
   <div class="grid sm:grid-cols-2 gap-4">
     <!-- Card -->
-    <div class="bg-white p-4 rounded shadow flex items-center gap-4">
-      <span
-        class="flex items-center justify-center shrink-0 rounded-full h-12 w-12 bg-zinc-100 border border-zinc-200 text-zinc-900 font-semibold">
-        AJ
-      </span>
+    <?php foreach ($contacts as $contact) : ?>
+      <div class="bg-white p-4 rounded shadow flex items-center gap-4">
+        <span
+          class="flex items-center justify-center shrink-0 rounded-full h-12 w-12 bg-zinc-100 border border-zinc-200 text-zinc-900 font-semibold">
+          <?= getInitials($contact->name) ?>
+        </span>
 
-      <div class="flex flex-col gap-1">
-        <strong>Alex Johnson</strong>
+        <div class="flex flex-col gap-1">
+          <strong><?= $contact->name ?></strong>
 
-        <div class="flex items-center gap-1 text-zinc-600">
-          <i class="ph ph-envelope-simple text-lg"></i>
-          <a class="text-sm hover:underline" href="#">alex@example.com</a>
-        </div>
+          <div class="flex items-center gap-1 text-zinc-600">
+            <i class="ph ph-envelope-simple text-lg"></i>
+            <a class="text-sm hover:underline" href="mailto:<?= $contact->email ?>">
+              <?= $contact->email ?>
+            </a>
+          </div>
 
-        <div class="flex items-center gap-1 text-zinc-600">
-          <i class="ph ph-phone text-lg"></i>
-          <a class="text-sm hover:underline" href="#">(11) 3948-1265</a>
-        </div>
-      </div>
-    </div>
-    <!-- End Card -->
-
-    <!-- Card -->
-    <div class="bg-white p-4 rounded shadow flex items-center gap-4">
-      <span
-        class="flex items-center justify-center shrink-0 rounded-full h-12 w-12 bg-zinc-100 border border-zinc-200 text-zinc-900 font-semibold">
-        AJ
-      </span>
-
-      <div class="flex flex-col gap-1">
-        <strong>Alex Johnson</strong>
-
-        <div class="flex items-center gap-1 text-zinc-600">
-          <i class="ph ph-envelope-simple text-lg"></i>
-          <a class="text-sm hover:underline" href="#">alex@example.com</a>
-        </div>
-
-        <div class="flex items-center gap-1 text-zinc-600">
-          <i class="ph ph-phone text-lg"></i>
-          <a class="text-sm hover:underline" href="#">(11) 3948-1265</a>
+          <div class="flex items-center gap-1 text-zinc-600">
+            <i class="ph ph-phone text-lg"></i>
+            <a class="text-sm hover:underline" href="tel:+55<?= removePhoneMask($contact->phone) ?>">
+              <?= $contact->phone ?>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- End Card -->
-
-    <!-- Card -->
-    <div class="bg-white p-4 rounded shadow flex items-center gap-4">
-      <span
-        class="flex items-center justify-center shrink-0 rounded-full h-12 w-12 bg-zinc-100 border border-zinc-200 text-zinc-900 font-semibold">
-        AJ
-      </span>
-
-      <div class="flex flex-col gap-1">
-        <strong>Alex Johnson</strong>
-
-        <div class="flex items-center gap-1 text-zinc-600">
-          <i class="ph ph-envelope-simple text-lg"></i>
-          <a class="text-sm hover:underline" href="#">alex@example.com</a>
-        </div>
-
-        <div class="flex items-center gap-1 text-zinc-600">
-          <i class="ph ph-phone text-lg"></i>
-          <a class="text-sm hover:underline" href="#">(11) 3948-1265</a>
-        </div>
-      </div>
-    </div>
-    <!-- End Card -->
-
-    <!-- Card -->
-    <div class="bg-white p-4 rounded shadow flex items-center gap-4">
-      <span
-        class="flex items-center justify-center shrink-0 rounded-full h-12 w-12 bg-zinc-100 border border-zinc-200 text-zinc-900 font-semibold">
-        AJ
-      </span>
-
-      <div class="flex flex-col gap-1">
-        <strong>Alex Johnson</strong>
-
-        <div class="flex items-center gap-1 text-zinc-600">
-          <i class="ph ph-envelope-simple text-lg"></i>
-          <a class="text-sm hover:underline" href="#">alex@example.com</a>
-        </div>
-
-        <div class="flex items-center gap-1 text-zinc-600">
-          <i class="ph ph-phone text-lg"></i>
-          <a class="text-sm hover:underline" href="#">(11) 3948-1265</a>
-        </div>
-      </div>
-    </div>
+    <?php endforeach; ?>
     <!-- End Card -->
   </div>
 </div>

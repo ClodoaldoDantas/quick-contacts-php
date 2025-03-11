@@ -2,13 +2,23 @@
 
 namespace App\controllers;
 
+use Core\Database;
 use Core\Validation;
 
 class ContactController
 {
+  protected $db;
+
+  public function __construct()
+  {
+    $config = require_once __DIR__ . "/../../config.php";
+    $this->db = new Database($config);
+  }
+
   public function index()
   {
-    loadView("contacts");
+    $contacts = $this->db->query("SELECT * FROM contacts ORDER BY created_at DESC")->fetchAll();
+    loadView("contacts", ["contacts" => $contacts]);
   }
 
   public function create()

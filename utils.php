@@ -35,3 +35,32 @@ function loadView(string $view, array $data = [])
     echo "View {$view} not found";
   }
 }
+
+/**
+ * Removes phone mask
+ * 
+ * @param string $phone
+ * @return string
+ */
+function removePhoneMask(string $phone)
+{
+  return preg_replace("/\D/", "", $phone);
+}
+
+/**
+ * Gets initials from a name
+ * 
+ * @param string $name
+ * @return string
+ */
+function getInitials(string $name)
+{
+  $parts = explode(' ', $name);
+  $initials = '';
+
+  foreach ($parts as $part) {
+    $initials .= $part[0];
+  }
+
+  return substr($initials, 0, 2);
+}
