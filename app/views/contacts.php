@@ -16,6 +16,8 @@
     </a>
   </header>
 
+  <?php loadPartial("message"); ?>
+
   <!-- Contacts -->
   <div class="grid sm:grid-cols-2 gap-4">
     <!-- Card -->

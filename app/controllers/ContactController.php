@@ -3,6 +3,7 @@
 namespace App\controllers;
 
 use Core\Database;
+use Core\Session;
 use Core\Validation;
 
 class ContactController
@@ -58,6 +59,8 @@ class ContactController
       "email" => $email,
       "phone" => $phone
     ]);
+
+    Session::setFlashMessage("success_message", "Contato criado com sucesso!");
 
     header("Location: /");
     exit;
