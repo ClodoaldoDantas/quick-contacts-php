@@ -51,6 +51,12 @@ class ContactController
       return;
     }
 
-    echo "Contato criado com sucesso";
+    echo "<pre>";
+    print_r([
+      "name" => $name,
+      "email" => $email,
+      "phone" => $phone,
+    ]);
+    echo "</pre>";
   }
 }

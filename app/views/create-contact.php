@@ -35,7 +35,7 @@
         name="name"
         id="name"
         type="text"
-        placeholder="John Doe"
+        placeholder="Fulano da Silva"
         class="py-2 px-3 w-full rounded-md border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-500" />
     </div>
 
@@ -46,7 +46,7 @@
         name="email"
         id="email"
         type="text"
-        placeholder="john@example.com"
+        placeholder="fulano@gmail.com"
         class="py-2 px-3 w-full rounded-md border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-500" />
     </div>
 
@@ -57,7 +57,7 @@
         name="phone"
         id="phone"
         type="tel"
-        placeholder="(28) 3864-1830"
+        placeholder="(99) 99999-9999"
         class="py-2 px-3 w-full rounded-md border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-500" />
     </div>
 
@@ -68,5 +68,14 @@
     </button>
   </form>
 </div>
+
+<script src="https://unpkg.com/imask"></script>
+<script>
+  const phoneInput = document.querySelector("#phone");
+
+  const imask = IMask(phoneInput, {
+    mask: "(00) 00000-0000",
+  });
+</script>
 
 <?php loadPartial("footer"); ?>
