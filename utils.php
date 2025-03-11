@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Loads a partial view
+ * 
+ * @param string $name
+ * @return void
+ */
 function loadPartial(string $name)
 {
   $path = __DIR__ . "/app/views/partials/{$name}.php";
@@ -11,6 +17,13 @@ function loadPartial(string $name)
   }
 }
 
+/**
+ * Loads a view
+ * 
+ * @param string $view
+ * @param array $data
+ * @return void
+ */
 function loadView(string $view, array $data = [])
 {
   $path = __DIR__ . "/app/views/{$view}.php";

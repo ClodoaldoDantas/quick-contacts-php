@@ -2,6 +2,8 @@
 
 namespace Core;
 
+use App\controllers\ErrorController;
+
 class Router
 {
   private $routes = [];
@@ -41,7 +43,7 @@ class Router
 
       $controllerInstance->$method();
     } else {
-      echo "404 Not Found";
+      ErrorController::notFound();
     }
   }
 }
