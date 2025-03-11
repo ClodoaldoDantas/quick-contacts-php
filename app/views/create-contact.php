@@ -19,13 +19,7 @@
     </p>
   </header>
 
-  <?php if (!empty($errors)) : ?>
-    <div class="p-4 mb-4 bg-red-50 border border-red-200 rounded-md">
-      <?php foreach ($errors as $error) : ?>
-        <p class="text-red-500 text-sm"><?= $error ?></p>
-      <?php endforeach ?>
-    </div>
-  <?php endif ?>
+  <?php loadPartial("form-errors", ["errors" => $errors ?? null]); ?>
 
   <form class="space-y-4" action="/contacts" method="POST">
     <div class="flex flex-col gap-1">

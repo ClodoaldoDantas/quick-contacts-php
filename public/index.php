@@ -9,7 +9,7 @@ require_once "../utils.php";
 $router = new Router();
 
 $router->get("/", "ContactController@index");
-$router->get("/contacts/new", "ContactController@create");
+$router->get("/contacts", "ContactController@create");
 $router->post("/contacts", "ContactController@store");
 
 // Get the current URI without query string

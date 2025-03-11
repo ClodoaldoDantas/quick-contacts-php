@@ -6,11 +6,12 @@
  * @param string $name
  * @return void
  */
-function loadPartial(string $name)
+function loadPartial(string $name, array $data = [])
 {
   $path = __DIR__ . "/app/views/partials/{$name}.php";
 
   if (file_exists($path)) {
+    extract($data);
     require_once $path;
   } else {
     echo "Partial {$name} not found";
