@@ -51,12 +51,15 @@ class ContactController
       return;
     }
 
-    echo "<pre>";
-    print_r([
+    $sql = "INSERT INTO contacts (name, email, phone) VALUES (:name, :email, :phone)";
+
+    $this->db->query($sql, [
       "name" => $name,
       "email" => $email,
-      "phone" => $phone,
+      "phone" => $phone
     ]);
-    echo "</pre>";
+
+    header("Location: /");
+    exit;
   }
 }
