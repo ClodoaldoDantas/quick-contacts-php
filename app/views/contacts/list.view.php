@@ -34,6 +34,13 @@
 
   <?php loadPartial("message"); ?>
 
+  <?php if (empty($contacts)) : ?>
+    <div class="p-4 mb-4 bg-zinc-50 border border-zinc-300 rounded-md flex items-center gap-2">
+      <i class="ph-bold ph-warning-circle text-lg text-zinc-600"></i>
+      <p class="text-zinc-600 text-sm">Você ainda não possui nenhum contato cadastrado.</p>
+    </div>
+  <?php endif; ?>
+
   <!-- Contacts -->
   <div class="grid sm:grid-cols-2 gap-4">
     <!-- Card -->
