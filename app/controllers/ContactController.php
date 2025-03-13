@@ -18,7 +18,12 @@ class ContactController
 
   public function index()
   {
-    $contacts = $this->db->query("SELECT * FROM contacts ORDER BY created_at DESC")->fetchAll();
+    $sql = "SELECT * FROM contacts WHERE user_id = :user_id ORDER BY created_at DESC";
+
+    $contacts = $this->db->query($sql, [
+      "user_id" => Session::get("user")["id"]
+    ])->fetchAll();
+
     loadView("contacts/list", ["contacts" => $contacts]);
   }
 
@@ -52,17 +57,18 @@ class ContactController
       return;
     }
 
-    $sql = "INSERT INTO contacts (name, email, phone) VALUES (:name, :email, :phone)";
+    $sql = "INSERT INTO contacts (name, email, phone, user_id) VALUES (:name, :email, :phone, :user_id)";
 
     $this->db->query($sql, [
       "name" => $name,
       "email" => $email,
-      "phone" => $phone
+      "phone" => $phone,
+      "user_id" => Session::get("user")["id"],
     ]);
 
     Session::setFlashMessage("success_message", "Contato criado com sucesso!");
 
-    header("Location: /");
+    header("Location: /contacts");
     exit;
   }
 }
