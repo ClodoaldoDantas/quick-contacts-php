@@ -2,7 +2,7 @@
 
 <div class="max-w-md py-8 md:py-12 px-4 mx-auto">
   <a
-    href="/"
+    href="/contacts"
     class="flex items-center mb-10 gap-2 max-w-max text-zinc-900">
     <i class="ph ph-arrow-left text-lg"></i>
     Voltar aos contatos

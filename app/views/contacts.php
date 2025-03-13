@@ -10,7 +10,7 @@
 
     <a
       class="px-4 py-2 rounded text-white bg-blue-600 flex items-center gap-2"
-      href="/contacts">
+      href="/contacts/new">
       <i class="ph-bold ph-user-plus text-lg"></i>
       Adicionar Contato
     </a>
