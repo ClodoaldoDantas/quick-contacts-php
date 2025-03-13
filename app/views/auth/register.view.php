@@ -21,7 +21,18 @@
 
   <?php loadPartial("form-errors", ["errors" => $errors ?? null]); ?>
 
-  <form class="space-y-4" action="/contacts" method="POST">
+  <form class="space-y-4" action="/sign-up" method="POST">
+    <div class="flex flex-col gap-1">
+      <label class="text-sm font-semibold" for="name">Nome</label>
+
+      <input
+        name="name"
+        id="name"
+        type="text"
+        placeholder="Fulano da Silva"
+        class="py-2 px-3 w-full rounded-md border border-zinc-300 text-sm text-zinc-900 placeholder:text-zinc-500" />
+    </div>
+
     <div class="flex flex-col gap-1">
       <label class="text-sm font-semibold" for="email">E-mail</label>
 

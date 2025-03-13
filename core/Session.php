@@ -11,12 +11,12 @@ class Session
     }
   }
 
-  public static function set(string $key, string $value)
+  public static function set(string $key, mixed $value)
   {
     $_SESSION[$key] = $value;
   }
 
-  public function get(string $key, mixed $default = null)
+  public static function get(string $key, mixed $default = null)
   {
     return isset($_SESSION[$key]) ? $_SESSION[$key] : $default;
   }
