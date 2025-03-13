@@ -18,6 +18,7 @@ $router->get("/sign-in", "AuthController@login", "guest");
 $router->get("/sign-up", "AuthController@register", "guest");
 $router->post("/sign-in", "AuthController@authenticate", "guest");
 $router->post("/sign-up", "AuthController@store", "guest");
+$router->post("/sign-out", "AuthController@logout", "auth");
 
 # Auth routes
 $router->get("/contacts", "ContactController@index", "auth");

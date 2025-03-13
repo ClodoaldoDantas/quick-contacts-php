@@ -70,7 +70,7 @@
 
     <button
       type="submit"
-      class="px-4 py-2 rounded text-white bg-blue-600 w-full cursor-pointer disabled:opacity-50">
+      class="px-4 py-2 rounded text-white bg-blue-600 hover:bg-blue-500 w-full cursor-pointer disabled:opacity-50">
       Criar conta
     </button>
   </form>
