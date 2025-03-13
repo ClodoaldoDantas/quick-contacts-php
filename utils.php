@@ -21,13 +21,13 @@ function loadPartial(string $name, array $data = [])
 /**
  * Loads a view
  * 
- * @param string $view
+ * @param string $name
  * @param array $data
  * @return void
  */
-function loadView(string $view, array $data = [])
+function loadView(string $name, array $data = [])
 {
-  $path = __DIR__ . "/app/views/{$view}.php";
+  $path = __DIR__ . "/app/views/{$name}.view.php";
 
   if (file_exists($path)) {
     extract($data);

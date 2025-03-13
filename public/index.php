@@ -12,6 +12,8 @@ require_once "../utils.php";
 $router = new Router();
 
 $router->get("/", "HomeController@index");
+$router->get("/sign-in", "AuthController@login");
+$router->get("/sign-up", "AuthController@register");
 $router->get("/contacts", "ContactController@index");
 $router->get("/contacts/new", "ContactController@create");
 $router->post("/contacts", "ContactController@store");

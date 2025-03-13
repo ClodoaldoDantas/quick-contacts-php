@@ -19,12 +19,12 @@ class ContactController
   public function index()
   {
     $contacts = $this->db->query("SELECT * FROM contacts ORDER BY created_at DESC")->fetchAll();
-    loadView("contacts", ["contacts" => $contacts]);
+    loadView("contacts/list", ["contacts" => $contacts]);
   }
 
   public function create()
   {
-    loadView("create-contact");
+    loadView("contacts/create");
   }
 
   public function store()
@@ -48,7 +48,7 @@ class ContactController
     }
 
     if (!empty($errors)) {
-      loadView("create-contact", ["errors" => $errors]);
+      loadView("contacts/create", ["errors" => $errors]);
       return;
     }
 
