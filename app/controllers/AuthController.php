@@ -82,4 +82,49 @@ class AuthController
 
     redirect("/contacts");
   }
+
+  public function authenticate()
+  {
+    $email = htmlspecialchars($_POST["email"]);
+    $password = htmlspecialchars($_POST["password"]);
+
+    $errors = [];
+
+    if (!Validation::email($email)) {
+      $errors["email"] = "E-mail é inválido";
+    }
+
+    if (!Validation::required($password)) {
+      $errors["password"] = "Senha é obrigatória";
+    }
+
+    if (!empty($errors)) {
+      loadView("auth/login", ["errors" => $errors]);
+      return;
+    }
+
+    $user = $this->db->query("SELECT * FROM users WHERE email = :email", [
+      "email" => $email
+    ])->fetch();
+
+    if (!$user) {
+      $errors["email"] = "Credenciais inválidas";
+      loadView("auth/login", ["errors" => $errors]);
+      return;
+    }
+
+    if (!password_verify($password, $user->password)) {
+      $errors["password"] = "Credenciais inválidas";
+      loadView("auth/login", ["errors" => $errors]);
+      return;
+    }
+
+    Session::set("user", [
+      "id" => $user->id,
+      "name" => $user->name,
+      "email" => $user->email
+    ]);
+
+    redirect("/contacts");
+  }
 }

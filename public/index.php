@@ -16,6 +16,7 @@ $router->get("/", "HomeController@index");
 # Guest routes
 $router->get("/sign-in", "AuthController@login", "guest");
 $router->get("/sign-up", "AuthController@register", "guest");
+$router->post("/sign-in", "AuthController@authenticate", "guest");
 $router->post("/sign-up", "AuthController@store", "guest");
 
 # Auth routes

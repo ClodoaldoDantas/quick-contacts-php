@@ -21,7 +21,7 @@
 
   <?php loadPartial("form-errors", ["errors" => $errors ?? null]); ?>
 
-  <form class="space-y-4" action="/contacts" method="POST">
+  <form class="space-y-4" action="/sign-in" method="POST">
     <div class="flex flex-col gap-1">
       <label class="text-sm font-semibold" for="email">E-mail</label>
 
