@@ -38,6 +38,17 @@ function loadView(string $name, array $data = [])
 }
 
 /**
+ * Redirects to a given URL
+ * @param string $url
+ * @return void
+ */
+function redirect(string $url)
+{
+  header("Location: {$url}");
+  exit;
+}
+
+/**
  * Removes phone mask
  * 
  * @param string $phone

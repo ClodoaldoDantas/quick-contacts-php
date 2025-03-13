@@ -80,7 +80,6 @@ class AuthController
       "email" => $email
     ]);
 
-    header("Location: /contacts");
-    exit;
+    redirect("/contacts");
   }
 }

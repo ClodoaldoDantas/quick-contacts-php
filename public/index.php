@@ -13,13 +13,15 @@ $router = new Router();
 
 $router->get("/", "HomeController@index");
 
-$router->get("/sign-in", "AuthController@login");
-$router->get("/sign-up", "AuthController@register");
-$router->post("/sign-up", "AuthController@store");
+# Guest routes
+$router->get("/sign-in", "AuthController@login", "guest");
+$router->get("/sign-up", "AuthController@register", "guest");
+$router->post("/sign-up", "AuthController@store", "guest");
 
-$router->get("/contacts", "ContactController@index");
-$router->get("/contacts/new", "ContactController@create");
-$router->post("/contacts", "ContactController@store");
+# Auth routes
+$router->get("/contacts", "ContactController@index", "auth");
+$router->get("/contacts/new", "ContactController@create", "auth");
+$router->post("/contacts", "ContactController@store", "auth");
 
 // Get the current URI without query string
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

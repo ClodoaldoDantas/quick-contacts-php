@@ -68,7 +68,6 @@ class ContactController
 
     Session::setFlashMessage("success_message", "Contato criado com sucesso!");
 
-    header("Location: /contacts");
-    exit;
+    redirect("/contacts");
   }
 }
