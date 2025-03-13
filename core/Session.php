@@ -11,19 +11,44 @@ class Session
     }
   }
 
-  public static function setFlashMessage($key, $message)
+  public static function set(string $key, string $value)
   {
-    $_SESSION["flash_{$key}"] = $message;
+    $_SESSION[$key] = $value;
+  }
+
+  public function get(string $key, mixed $default = null)
+  {
+    return isset($_SESSION[$key]) ? $_SESSION[$key] : $default;
+  }
+
+  public static function has(string $key)
+  {
+    return isset($_SESSION[$key]);
+  }
+
+  public static function clear(string $key)
+  {
+    if (isset($_SESSION[$key])) {
+      unset($_SESSION[$key]);
+    }
+  }
+
+  public static function clearAll()
+  {
+    session_unset();
+    session_destroy();
+  }
+
+  public static function setFlashMessage(string $key, string $message)
+  {
+    self::set("flash_{$key}", $message);
   }
 
   public static function getFlashMessage($key, $default = null)
   {
-    if (isset($_SESSION["flash_{$key}"])) {
-      $message = $_SESSION["flash_{$key}"];
-      unset($_SESSION["flash_{$key}"]);
-      return $message;
-    }
+    $message = self::get("flash_{$key}", $default);
+    self::clear("flash_{$key}");
 
-    return $default;
+    return $message;
   }
 }
