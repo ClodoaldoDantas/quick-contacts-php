@@ -24,6 +24,7 @@ $router->post("/sign-out", "AuthController@logout", "auth");
 $router->get("/contacts", "ContactController@index", "auth");
 $router->get("/contacts/new", "ContactController@create", "auth");
 $router->post("/contacts", "ContactController@store", "auth");
+$router->post("/contacts/delete", "ContactController@destroy", "auth");
 
 // Get the current URI without query string
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

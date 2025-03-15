@@ -37,7 +37,7 @@ class Router
 
     $route = $this->routes[$method][$uri];
 
-    (new Authorization())->handle($route["access"]);
+    Authorization::handle($route["access"]);
 
     [$controller, $method] = explode("@", $route['action']);
     $controllerClass = "App\\controllers\\{$controller}";

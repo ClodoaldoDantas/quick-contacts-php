@@ -45,7 +45,7 @@
   <div class="grid sm:grid-cols-2 gap-4">
     <!-- Card -->
     <?php foreach ($contacts as $contact) : ?>
-      <div class="bg-white p-4 rounded shadow flex items-center gap-4">
+      <div class="bg-white p-4 rounded shadow flex items-center gap-4 relative">
         <span
           class="flex items-center justify-center shrink-0 rounded-full h-12 w-12 bg-zinc-100 border border-zinc-200 text-zinc-900 font-semibold">
           <?= getInitials($contact->name) ?>
@@ -68,6 +68,13 @@
             </a>
           </div>
         </div>
+
+        <form class="absolute top-1 right-1" action="/contacts/delete" method="POST">
+          <input type="hidden" name="id" value="<?= $contact->id ?>">
+          <button class="size-10 flex items-center justify-center cursor-pointer hover:text-red-500" type="submit">
+            <i class="ph ph-trash text-xl"></i>
+          </button>
+        </form>
       </div>
     <?php endforeach; ?>
     <!-- End Card -->
