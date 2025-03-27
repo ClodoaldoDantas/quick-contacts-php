@@ -1,5 +1,7 @@
 # ☎️ Quick Contacts
 
+![image](https://github.com/user-attachments/assets/98368e44-e29c-4abe-98b1-6b1fcaba6e7c)
+
 Uma aplicação simples para gerenciamento de contatos desenvolvida com PHP puro, utilizando o padrão de arquitetura MVC e PDO para comunicação com o banco de dados.
 
 ## 🚀 Tecnologias
